@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #EEF2ED;
+  --surface: #FFFFFF;
+  --border: #D8DED9;
+  --ink: #12261E;
+  --ink-muted: #4B5F55;
+  --primary: #1F6F54;
+  --primary-dark: #163F30;
+  --gold: #C08A2E;
+  --danger: #A23B3B;
+}
+
+.dark {
+  --bg: #0E1613;
+  --surface: #16211D;
+  --border: #24322C;
+  --ink: #E9EFEA;
+  --ink-muted: #9FB3A8;
+  --primary: #3FA582;
+  --primary-dark: #2A7A5F;
+  --gold: #D9A84E;
+  --danger: #D9706A;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* dígitos financeiros sempre em fonte monoespaçada tabular, para colunas
+   de valores alinharem como num extrato bancário de verdade */
+.money {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* textura sutil de "papel ligado" nos cards do dashboard */
+.ledger-surface {
+  background-color: var(--surface);
+  background-image: linear-gradient(var(--border) 1px, transparent 1px);
+  background-size: 100% 28px;
+  background-position: 0 8px;
+}
+
+/* selo estilo "carimbo de boleto pago" para status de transação */
+.stamp {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1.5px dashed currentColor;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 8px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
